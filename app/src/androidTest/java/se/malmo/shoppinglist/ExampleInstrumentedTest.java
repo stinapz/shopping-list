@@ -23,4 +23,8 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         assertEquals("se.malmo.shoppinglist", appContext.getPackageName());
     }
+
+    void hej(){
+
+    }
 }
