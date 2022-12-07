@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    void hejhej(){}
+
     public void onBtnAddClick(View view) {
         Intent intent = new Intent(this, EditListActivity.class);
         startActivity(intent);
