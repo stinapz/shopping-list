@@ -12,6 +12,14 @@ public class DbHelper extends SQLiteOpenHelper {
         public static final int VERSION = 1;
         public static final String TABLE_NAME = "Items";
 
+        private static DbHelper instance = null;
+        public static DbHelper getInstance(Context context){
+            if (instance == null)
+                instance = new DbHelper(context.getApplicationContext());
+
+            return instance;
+        }
+
         public DbHelper(@Nullable Context context ) {
             super(context, DB_NAME, null, VERSION);
         }
