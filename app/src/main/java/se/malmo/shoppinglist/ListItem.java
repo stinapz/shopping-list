@@ -32,7 +32,7 @@ public class ListItem {
         return isChecked;
     }
 
-    public ListItem setIsChecked(boolean isChecked){
+    public ListItem setIsChecked(int isChecked){
         this.isChecked = isChecked;
         return this;
 
