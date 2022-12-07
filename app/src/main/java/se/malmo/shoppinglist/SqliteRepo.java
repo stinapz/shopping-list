@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import java.util.ArrayList;
 
 public class SqliteRepo implements Repository {
-    private static final String TABLE_NAME = "books";
+    private static final String TABLE_NAME = "Items";
     private SQLiteOpenHelper sqlite;
 
     // Singleton Pattern (Creational Pattern, Martin Fowler, Gang of Four)
@@ -84,10 +84,7 @@ public class SqliteRepo implements Repository {
             updateItem(listItem);
     }
 
-    @Override
-    public void edit(ListItem listItems) {
 
-    }
 
     private void insertItem(ListItem listItem){
         SQLiteDatabase db = sqlite.getWritableDatabase();
@@ -119,8 +116,10 @@ public class SqliteRepo implements Repository {
         return whereArgs;
     }
 
+    @Override
+    public void edit(ListItem listItems) {
 
-
+    }
 
 }
 
