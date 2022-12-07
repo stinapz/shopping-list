@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Shoppinglista</string>
+    <string name="list_item">Vara</string>
+    <string name="save">Spara</string>
+    <string name="delete">Radera</string>
+    <string name="delete_list">Radera lista</string>
+</resources>

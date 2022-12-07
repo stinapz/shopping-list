@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Shopping LIst</string>
+    <string name="app_name">Shopping List</string>
+    <string name="list_item">List item</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="delete_list">Delete list</string>
 </resources>
