@@ -19,7 +19,7 @@ public class EditListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_list);
 
-        repo = new SqliteRepo();
+        repo = SqliteRepo.getInstance(getApplicationContext());
 
         listView = findViewById(R.id.rv_list_items);
 
