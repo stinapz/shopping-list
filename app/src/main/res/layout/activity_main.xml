@@ -18,7 +18,7 @@
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/shopping_lists"
+        android:id="@+id/rv_shopping_lists"
         android:layout_width="357dp"
         android:layout_height="565dp"
         android:layout_marginStart="10dp"
