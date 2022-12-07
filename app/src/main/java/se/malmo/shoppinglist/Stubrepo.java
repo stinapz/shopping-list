@@ -12,14 +12,20 @@ public class Stubrepo implements Repository {
         listItems.add(new ListItem()
                 .setId(1)
                 .setItem("Mjölk")
-                .setIsChecked(true)
+                .setIsChecked(1)
         );
         listItems.add(new ListItem()
                 .setId(2)
                 .setItem("Ost")
-                .setIsChecked(false)
+                .setIsChecked(0)
         );
     }
+
+    @Override
+    public ListItem findItemById(int id) {
+        return null;
+    }
+
     @Override
     public ArrayList<ListItem> findAllItems() {
         return listItems;

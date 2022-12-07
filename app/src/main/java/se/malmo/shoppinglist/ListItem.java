@@ -5,14 +5,14 @@ public class ListItem {
     //fields
     private int id;
     private String item;
-    private Boolean isChecked;
+    private int isChecked;
 
     //Konstruktor
     public ListItem() {
         item = "";
     }
 
-    public ListItem(int id, String item, boolean isChecked) {
+    public ListItem(int id, String item, int isChecked) {
         this.id = id;
         this.item = item;
         this.isChecked = isChecked;
@@ -28,7 +28,7 @@ public class ListItem {
         this.id = id;
         return this;
     }
-    public boolean getIsChecked(){
+    public int getIsChecked(){
         return isChecked;
     }
 
