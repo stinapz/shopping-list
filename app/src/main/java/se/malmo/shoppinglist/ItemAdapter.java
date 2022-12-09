@@ -50,7 +50,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ItemAdapter.ViewHolder holder, int position) {
         ListItem item = items.get(position);
 
-        holder.txtItem.setText(String.valueOf(item.getId()));
+        holder.txtItem.setText(String.valueOf(item.getItem()));
 
     }
 

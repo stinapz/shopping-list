@@ -23,7 +23,7 @@ public class EditListActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.rv_list_items);
 
-        ItemAdapter ListView = new ItemAdapter(this, repo.findAllItems());
+        adapter = new ItemAdapter(this, repo.findAllItems());
         listView.setAdapter(adapter);
         listView.setLayoutManager(new LinearLayoutManager(this));
 
