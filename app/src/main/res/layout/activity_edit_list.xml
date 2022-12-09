@@ -37,6 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:onClick="onBtnSaveClick"
                 android:text="@string/save" />
 
             <Button
@@ -44,6 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
+                android:onClick="onBtnRemoveClick"
                 android:text="@string/delete" />
 
             <Button
