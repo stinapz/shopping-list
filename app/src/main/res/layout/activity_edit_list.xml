@@ -56,6 +56,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:backgroundTint="#F44336"
+                android:onClick="onBtnDeleteListClick"
                 android:text="@string/delete_list" />
 
         </LinearLayout>

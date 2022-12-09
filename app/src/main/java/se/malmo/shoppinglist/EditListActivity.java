@@ -35,11 +35,18 @@ public class EditListActivity extends AppCompatActivity {
         itemRepo.save(item);
         navigateBackToMain();
     }
-    // KOMMER BEHÖVA
+
     public void onBtnRemoveClick(View view) {
         itemRepo.deleteItem(itemId);
         navigateBackToMain();
     }
+
+    public void onBtnDeleteListClick(View view){
+        itemRepo.deleteAll();
+        navigateBackToMain();
+    }
+
+
 
     private ListItem getItemFromIntent(){
         Intent intent = getIntent();
