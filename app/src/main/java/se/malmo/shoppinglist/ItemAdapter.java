@@ -39,7 +39,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         // lambda implementation of the event listener
         itemView.setOnClickListener(view -> {
             Intent intent = new Intent(context, EditListActivity.class);
-            intent.putExtra("id", Integer.valueOf(holder.txtItem.getText().toString()));
+            intent.putExtra("id", holder.txtItem.getText().toString());
             context.startActivity(intent);
         });
 

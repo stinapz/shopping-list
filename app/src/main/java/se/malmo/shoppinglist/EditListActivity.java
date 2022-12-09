@@ -13,9 +13,9 @@ import android.widget.TextView;
 public class EditListActivity extends AppCompatActivity {
     RecyclerView listView;
     ItemAdapter adapter;
-    Repository repo;
     private int itemId;
     Repository itemRepo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,14 @@ public class EditListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_list);
 
         itemRepo = SqliteRepo.getInstance(getApplicationContext());
+
+        listView = findViewById(R.id.rv_list_items);
+
+        adapter = new ItemAdapter(this, itemRepo.findAllItems());
+        listView.setAdapter(adapter);
+        listView.setLayoutManager(new LinearLayoutManager(this));
+
+
 
     }
 
@@ -51,7 +59,7 @@ public class EditListActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int itemId = intent.getIntExtra("id", 0);
 
-        ListItem item = repo.findItemById(itemId);
+        ListItem item = itemRepo.findItemById(itemId);
         // if the book does not exist in the db (null) then return a new one
         return item == null ? new ListItem() : item;
     }
