@@ -1,5 +1,7 @@
 package se.malmo.shoppinglist;
 
+import android.database.sqlite.SQLiteDatabase;
+
 import java.util.ArrayList;
 
 public class Stubrepo implements Repository {
@@ -41,6 +43,10 @@ public class Stubrepo implements Repository {
 
     }
 
+    @Override
+    public void deleteAll() {
+
+    }
 
 
     @Override

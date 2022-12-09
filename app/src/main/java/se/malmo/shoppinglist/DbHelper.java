@@ -41,4 +41,5 @@ public class DbHelper extends SQLiteOpenHelper {
             db.execSQL("DROP TABLE IF EXISTS Items");
             onCreate(db);
         }
+
     }

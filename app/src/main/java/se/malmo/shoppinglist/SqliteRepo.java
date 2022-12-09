@@ -84,6 +84,13 @@ public class SqliteRepo implements Repository {
             updateItem(listItem);
     }
 
+    @Override
+    public void deleteAll() {
+        SQLiteDatabase db = this.sqlite.getReadableDatabase();
+        db.delete(TABLE_NAME,null,null);
+        db.execSQL("delete FROM "+ TABLE_NAME);
+        db.close();
+    }
 
 
     private void insertItem(ListItem listItem){
