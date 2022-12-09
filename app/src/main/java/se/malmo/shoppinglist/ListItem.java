@@ -5,7 +5,7 @@ public class ListItem {
     //fields
     private int id;
     private String item;
-    private int isChecked;
+    private int isChecked = 0;
 
     //Konstruktor
     public ListItem() {
