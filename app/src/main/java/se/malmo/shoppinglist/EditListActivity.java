@@ -27,9 +27,8 @@ public class EditListActivity extends AppCompatActivity {
     }
 
     public void onBtnSaveClick(View view) {
-        ListItem item = new ListItem()
-                .setId(itemId)
-                .setItem(getTextFromView(R.id.txt_edit_item));
+        ListItem item = new ListItem(itemId,getTextFromView(R.id.txt_edit_item),0);
+
 
 
         itemRepo.save(item);

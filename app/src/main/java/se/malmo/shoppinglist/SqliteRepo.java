@@ -113,7 +113,7 @@ public class SqliteRepo implements Repository {
 
         ContentValues c = new ContentValues();
         c.put("Item", listItem.getItem());
-
+        c.put("IsChecked", listItem.getIsChecked());
         return c;
     }
 

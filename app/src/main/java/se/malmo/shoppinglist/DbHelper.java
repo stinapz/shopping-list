@@ -30,7 +30,7 @@ public class DbHelper extends SQLiteOpenHelper {
                     "CREATE TABLE Items (" +
                             "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                             "item TEXT," +
-                            "isChecked BOOL" +
+                            "isChecked INTEGER" +
                             ")";
 
             db.execSQL(query);

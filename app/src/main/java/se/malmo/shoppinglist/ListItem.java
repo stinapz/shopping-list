@@ -10,6 +10,7 @@ public class ListItem {
     //Konstruktor
     public ListItem() {
         item = "";
+        isChecked = 0;
     }
 
     public ListItem(int id, String item, int isChecked) {
