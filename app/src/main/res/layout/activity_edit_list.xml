@@ -55,12 +55,14 @@
                 android:layout_weight="1"
                 android:backgroundTint="#F44336"
                 android:text="@string/delete_list" />
+
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_list_items"
             android:layout_width="match_parent"
-            android:layout_height="607dp" />
+            android:layout_height="234dp"
+            app:layout_constrainedHeight="true" />
 
 
     </LinearLayout>
