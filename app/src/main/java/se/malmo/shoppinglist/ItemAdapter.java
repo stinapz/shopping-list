@@ -22,8 +22,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     }
 
 
-
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -55,8 +53,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     }
 
     @Override
-    public int getItemCount() {
-        return 0;
+    public int getItemCount() { return items.size();
     }
     // how to interact with the view (layout)
     public class ViewHolder extends RecyclerView.ViewHolder{
