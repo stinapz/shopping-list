@@ -14,26 +14,26 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
+    ItemAdapter adapter;
+    Repository repo;
     ItemAdapter itemAdapter;
     DbHelper dbHelper;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        System.out.println("Hello World");
 
-        dbHelper = DbHelper.getInstance(this);
-        /*
+
+        repo = SqliteRepo.getInstance(getApplicationContext());
+
         recyclerView = findViewById(R.id.rv_shopping_lists);
-        ArrayList<ListItem> items = dbHelper.getAll();
-        bookAdapter = new BookAdapter(this, books);
 
-        // attach the adapter to the recycler view
-        booksListView.setAdapter(bookAdapter);
-        booksListView.setLayoutManager(new LinearLayoutManager(this));
-        */
+        adapter = new ItemAdapter(this, repo.findAllItems());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
 

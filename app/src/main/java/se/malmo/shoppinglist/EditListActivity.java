@@ -55,7 +55,7 @@ public class EditListActivity extends AppCompatActivity {
         // if the book does not exist in the db (null) then return a new one
         return item == null ? new ListItem() : item;
     }
-    // KOMMER BEHÖVA
+
     private void navigateBackToMain(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

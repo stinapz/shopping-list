@@ -56,7 +56,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return items.size();
     }
     // how to interact with the view (layout)
     public class ViewHolder extends RecyclerView.ViewHolder{
