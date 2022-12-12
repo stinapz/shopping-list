@@ -40,7 +40,8 @@ public class EditListActivity extends AppCompatActivity {
 
 
         itemRepo.save(item);
-        navigateBackToMain();
+        navigateToEditList();
+
     }
 
     public void onBtnRemoveClick(View view) {
@@ -66,6 +67,10 @@ public class EditListActivity extends AppCompatActivity {
 
     private void navigateBackToMain(){
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+    private void navigateToEditList(){
+        Intent intent = new Intent(this, EditListActivity.class);
         startActivity(intent);
     }
 
