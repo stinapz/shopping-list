@@ -35,6 +35,7 @@ public class EditListActivity extends AppCompatActivity {
 
 
 
+
     }
 
     public void onBtnSaveClick(View view) {
@@ -46,7 +47,10 @@ public class EditListActivity extends AppCompatActivity {
         else {
             itemRepo.save(item);
             Toast.makeText(this, "Item added", Toast.LENGTH_SHORT).show();
+            navigateToEditList();
         }
+
+
     }
 
 
@@ -76,6 +80,11 @@ public class EditListActivity extends AppCompatActivity {
 
     private void navigateBackToMain(){
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    private void navigateToEditList(){
+        Intent intent = new Intent(this, EditListActivity.class);
         startActivity(intent);
     }
 
