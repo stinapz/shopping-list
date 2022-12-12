@@ -43,9 +43,10 @@ public class EditListActivity extends AppCompatActivity {
 
         if (Objects.equals(item.getItem(), ""))
             Toast.makeText(getApplicationContext(), "Error adding item", Toast.LENGTH_SHORT).show();
-        else
+        else {
             itemRepo.save(item);
             Toast.makeText(this, "Item added", Toast.LENGTH_SHORT).show();
+        }
     }
 
 
