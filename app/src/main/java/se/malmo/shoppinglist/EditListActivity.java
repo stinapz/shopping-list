@@ -9,6 +9,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Objects;
 
 public class EditListActivity extends AppCompatActivity {
     RecyclerView listView;
@@ -35,13 +38,18 @@ public class EditListActivity extends AppCompatActivity {
     }
 
     public void onBtnSaveClick(View view) {
-        ListItem item = new ListItem(itemId,getTextFromView(R.id.txt_edit_item),0);
 
+        ListItem item = new ListItem(itemId, getTextFromView(R.id.txt_edit_item), 0);
 
-
-        itemRepo.save(item);
-        navigateBackToMain();
+        if (Objects.equals(item.getItem(), ""))
+            Toast.makeText(getApplicationContext(), "Error adding item", Toast.LENGTH_SHORT).show();
+        else
+            itemRepo.save(item);
+            Toast.makeText(this, "Item added", Toast.LENGTH_SHORT).show();
     }
+
+
+
 
     public void onBtnRemoveClick(View view) {
         itemRepo.deleteItem(itemId);
