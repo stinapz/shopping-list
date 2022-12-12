@@ -7,3 +7,4 @@
 * Spara state på checkbox
 
 * Kunna editera och radera vara
+
