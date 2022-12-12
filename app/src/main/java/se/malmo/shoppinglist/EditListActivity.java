@@ -10,14 +10,11 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 public class EditListActivity extends AppCompatActivity {
     RecyclerView listView;
     ItemAdapter adapter;
     private int itemId;
     Repository itemRepo;
-
 
 
     @Override
@@ -40,10 +37,10 @@ public class EditListActivity extends AppCompatActivity {
     public void onBtnSaveClick(View view) {
         ListItem item = new ListItem(itemId,getTextFromView(R.id.txt_edit_item),0);
 
+
+
         itemRepo.save(item);
-        navigateToEditListActivity();
-
-
+        navigateBackToMain();
     }
 
     public void onBtnRemoveClick(View view) {
@@ -69,10 +66,6 @@ public class EditListActivity extends AppCompatActivity {
 
     private void navigateBackToMain(){
         Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
-    private void navigateToEditListActivity(){
-        Intent intent = new Intent(this, EditListActivity.class);
         startActivity(intent);
     }
 
