@@ -33,7 +33,9 @@ public class EditListActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
         listView.setLayoutManager(new LinearLayoutManager(this));
 
-
+        ListItem item = getItemFromIntent();
+        itemId = item.getId();
+        initViewFromItem(item);
 
 
     }
@@ -49,16 +51,12 @@ public class EditListActivity extends AppCompatActivity {
             Toast.makeText(this, "Item added", Toast.LENGTH_SHORT).show();
             navigateToEditList();
         }
-
-
     }
-
-
 
 
     public void onBtnRemoveClick(View view) {
         itemRepo.deleteItem(itemId);
-        navigateBackToMain();
+        navigateToEditList();
     }
 
     // Raderar hela listan -> fungerar!

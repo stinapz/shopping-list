@@ -32,7 +32,7 @@ public class SqliteRepo implements Repository {
     @Override
     public ListItem findItemById(int id) {
         SQLiteDatabase db = sqlite.getReadableDatabase();
-        String query = "SELECT * FROM " + TABLE_NAME + id;
+        String query = "SELECT * FROM items WHERE id = " + id;
 
         Cursor cursor = db.rawQuery(query, null);
 

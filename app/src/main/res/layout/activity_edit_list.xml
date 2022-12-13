@@ -9,7 +9,7 @@
     <LinearLayout
         android:id="@+id/Linear_layout"
         android:layout_width="410dp"
-        android:layout_height="730dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -64,7 +64,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_list_items"
             android:layout_width="match_parent"
-            android:layout_height="234dp"
+            android:layout_height="588dp"
             app:layout_constrainedHeight="true" />
 
 

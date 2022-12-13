@@ -35,14 +35,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
         // the ViewHolder is used to interact with the View
         ViewHolder holder = new ViewHolder(itemView);
-
+        /*
         // lambda implementation of the event listener
         itemView.setOnClickListener(view -> {
             Intent intent = new Intent(context, EditListActivity.class);
             intent.putExtra("id", holder.txtItem.getText().toString());
             context.startActivity(intent);
         });
-
+        */
         return holder;
     }
 
@@ -51,6 +51,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         ListItem item = items.get(position);
 
         holder.txtItem.setText(String.valueOf(item.getItem()));
+        holder.txtItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, EditListActivity.class);
+                intent.putExtra("id", item.getId());
+                context.startActivity(intent);
+            }
+        });
 
     }
 
