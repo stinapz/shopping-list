@@ -61,8 +61,15 @@ public class EditListActivity extends AppCompatActivity {
 
     // Raderar hela listan -> fungerar!
     public void onBtnDeleteListClick(View view){
-        itemRepo.deleteAll();
-        navigateBackToMain();
+        if(adapter.items.size() == 0) {
+            Toast.makeText(getApplicationContext(), "List is already empty", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "Deleted list", Toast.LENGTH_SHORT).show();
+            itemRepo.deleteAll();
+            navigateBackToMain();
+        }
+
     }
 
 
