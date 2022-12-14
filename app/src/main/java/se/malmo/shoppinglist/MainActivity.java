@@ -17,16 +17,11 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ItemAdapter adapter;
     Repository repo;
-    ItemAdapter itemAdapter;
-    DbHelper dbHelper;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         repo = SqliteRepo.getInstance(getApplicationContext());
 
@@ -37,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    
     public void onBtnAddClick(View view) {
         Intent intent = new Intent(this, EditListActivity.class);
         startActivity(intent);

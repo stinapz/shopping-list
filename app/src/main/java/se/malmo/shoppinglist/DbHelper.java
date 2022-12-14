@@ -10,7 +10,6 @@ public class DbHelper extends SQLiteOpenHelper {
 
         public static final String DB_NAME = "Shopping.db";
         public static final int VERSION = 1;
-        public static final String TABLE_NAME = "Items";
 
         private static DbHelper instance = null;
         public static DbHelper getInstance(Context context){

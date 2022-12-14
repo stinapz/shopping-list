@@ -4,4 +4,8 @@
     <string name="save">Save</string>
     <string name="delete">Delete</string>
     <string name="delete_list">Delete list</string>
+    <string name="Error_Adding_Item">Error adding item</string>
+    <string name="Item_added">Item added</string>
+    <string name="List_is_aldready_empty">List is already empty</string>
+    <string name="Deleted_list">Deleted list</string>
 </resources>

@@ -2,7 +2,7 @@ package se.malmo.shoppinglist;
 
 public class ListItem {
 
-    //fields
+    //Fields
     private int id;
     private String item;
     private int isChecked = 0;
@@ -17,8 +17,6 @@ public class ListItem {
         this.id = id;
         this.item = item;
         this.isChecked = isChecked;
-
-
     }
 
     public int getId() {

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -15,7 +14,6 @@ public class SqliteRepo implements Repository {
     private static final String TABLE_NAME = "Items";
     private SQLiteOpenHelper sqlite;
 
-    // Singleton Pattern (Creational Pattern, Martin Fowler, Gang of Four)
     private static SqliteRepo instance = null;
     public static SqliteRepo getInstance(Context context){
         if(instance == null)
@@ -24,10 +22,8 @@ public class SqliteRepo implements Repository {
         return instance;
     }
     private SqliteRepo(Context context){
-        //singleton pattern
         sqlite = DbHelper.getInstance(context);
     }
-
 
     @Override
     public ListItem findItemById(int id) {
@@ -36,8 +32,8 @@ public class SqliteRepo implements Repository {
 
         Cursor cursor = db.rawQuery(query, null);
 
-        // ternary operator or conditional expression
-        // (boolean_expr ? value1 : value2) -> value is bool_expr is true, otherwise value2
+        // Värdet är bool, om bool är sant görs alternativ 1, annars alternativ två.
+        // Dessa delas av med :
         ListItem listItem = cursor.moveToFirst()
                 ? new ListItem()
                 .setId(cursor.getInt(0))
@@ -45,7 +41,7 @@ public class SqliteRepo implements Repository {
                 .setIsChecked(cursor.getInt(2))
                 : null;
 
-        cursor.close(); // we need to close the cursor when done
+        cursor.close(); // vi behöver stänga cursorn när vi är klara
         return listItem;
     }
 
@@ -65,7 +61,6 @@ public class SqliteRepo implements Repository {
 
             listItems.add(listItem);
         }
-
         cursor.close();
         return listItems;
     }
@@ -75,6 +70,7 @@ public class SqliteRepo implements Repository {
         SQLiteDatabase db = sqlite.getWritableDatabase();
         String[] args = getWhereArgs(id);
         db.delete(TABLE_NAME, "id = ?", args);
+        db.close();
     }
 
     @Override
@@ -98,6 +94,7 @@ public class SqliteRepo implements Repository {
         SQLiteDatabase db = sqlite.getWritableDatabase();
         ContentValues c = getContentValues(listItem);
         db.insert(TABLE_NAME, null, c);
+        db.close();
     }
 
     private void updateItem(ListItem listItem){
@@ -107,6 +104,7 @@ public class SqliteRepo implements Repository {
         String[] whereArgs = getWhereArgs(listItem.getId());
 
         db.update(TABLE_NAME, c, "id = ?", whereArgs);
+        db.close();
     }
 
     @NonNull
@@ -122,11 +120,6 @@ public class SqliteRepo implements Repository {
     private String[] getWhereArgs(int id) {
         String[] whereArgs = {String.valueOf(id)};
         return whereArgs;
-    }
-
-    @Override
-    public void edit(ListItem listItems) {
-
     }
 
 }
