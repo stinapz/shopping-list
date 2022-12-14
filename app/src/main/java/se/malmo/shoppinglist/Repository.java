@@ -11,5 +11,4 @@ public interface Repository {
     void deleteItem(int id);
     void save(ListItem listItems);
     void deleteAll();
-    void edit(ListItem listItems);
 }

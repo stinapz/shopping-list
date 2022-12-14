@@ -21,28 +21,17 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         this.items = items;
     }
 
-
-
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // this method is called when a new view needs to be created
+        // denna metod blir kallad och körs när en ny view behöver skapas
 
-        // the Inflater takes a layout and convert it into a View
+        // Inflatern tar en layout och konverterar den tille n view
         LayoutInflater inflater = LayoutInflater.from(context);
         View itemView = inflater.inflate(R.layout.list_item, parent, false);
 
-        // the ViewHolder is used to interact with the View
+        // ViewHolder behövs för att interagerar med view'n
         ViewHolder holder = new ViewHolder(itemView);
-        /*
-        // lambda implementation of the event listener
-        itemView.setOnClickListener(view -> {
-            Intent intent = new Intent(context, EditListActivity.class);
-            intent.putExtra("id", holder.txtItem.getText().toString());
-            context.startActivity(intent);
-        });
-        */
         return holder;
     }
 
@@ -51,22 +40,18 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         ListItem item = items.get(position);
 
         holder.txtItem.setText(String.valueOf(item.getItem()));
-        holder.txtItem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, EditListActivity.class);
-                intent.putExtra("id", item.getId());
-                context.startActivity(intent);
-            }
+        holder.txtItem.setOnClickListener(view -> {
+            Intent intent = new Intent(context, EditListActivity.class);
+            intent.putExtra("id", item.getId());
+            context.startActivity(intent);
         });
-
     }
 
     @Override
     public int getItemCount() {
         return items.size();
     }
-    // how to interact with the view (layout)
+    // hur man interagerar med view-layouten
     public class ViewHolder extends RecyclerView.ViewHolder{
         public final TextView txtItem;
 
