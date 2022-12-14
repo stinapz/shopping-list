@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -51,6 +52,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         ListItem item = items.get(position);
 
         holder.txtItem.setText(String.valueOf(item.getItem()));
+        holder.checkBox.setChecked(item.getIsChecked() == 1);
+
         holder.txtItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,11 +72,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     // how to interact with the view (layout)
     public class ViewHolder extends RecyclerView.ViewHolder{
         public final TextView txtItem;
+        public final CheckBox checkBox;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             txtItem = itemView.findViewById(R.id.txt_item);
+            checkBox = itemView.findViewById(R.id.checkBox);
         }
     }
 }
