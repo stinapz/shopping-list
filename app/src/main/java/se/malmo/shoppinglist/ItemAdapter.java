@@ -16,11 +16,19 @@ import java.util.ArrayList;
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     Context context;
     ArrayList<ListItem> items;
+    private AdapterCallback adapterCallback;
 
     public ItemAdapter(Context context, ArrayList<ListItem> items) {
         this.context = context;
         this.items = items;
+        try {
+            adapterCallback = ((AdapterCallback) context);
+        } catch (ClassCastException e) {
+            throw new ClassCastException("Activity must implement AdapterCallback.");
+        }
+
     }
+
 
 
 
@@ -51,6 +59,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ItemAdapter.ViewHolder holder, int position) {
         ListItem item = items.get(position);
 
+
         holder.txtItem.setText(String.valueOf(item.getItem()));
         holder.checkBox.setChecked(item.getIsChecked() == 1);
 
@@ -60,6 +69,23 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                 Intent intent = new Intent(context, EditListActivity.class);
                 intent.putExtra("id", item.getId());
                 context.startActivity(intent);
+            }
+        });
+        holder.checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (item.getIsChecked()==0)
+                    item.setIsChecked(1);
+                else
+                    item.setIsChecked(0);
+
+                try {
+                    adapterCallback.updateIsChecked(item);
+                } catch (ClassCastException e) {
+                    // do something
+                }
+
+
             }
         });
 
@@ -80,6 +106,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
             txtItem = itemView.findViewById(R.id.txt_item);
             checkBox = itemView.findViewById(R.id.checkBox);
         }
+    }
+
+    public interface AdapterCallback {
+        void updateIsChecked(ListItem item);
     }
 }
 

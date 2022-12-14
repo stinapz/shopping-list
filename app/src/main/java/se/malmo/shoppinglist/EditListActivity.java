@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import java.util.Objects;
 
-public class EditListActivity extends AppCompatActivity {
+public class EditListActivity extends AppCompatActivity implements ItemAdapter.AdapterCallback {
     RecyclerView listView;
     ItemAdapter adapter;
     private int itemId;
@@ -38,6 +38,8 @@ public class EditListActivity extends AppCompatActivity {
         initViewFromItem(item);
 
     }
+
+
 
     public void onBtnSaveClick(View view) {
 
@@ -99,5 +101,14 @@ public class EditListActivity extends AppCompatActivity {
     private String getTextFromView(int resId) {
         TextView view = findViewById(resId);
         return view.getText().toString();
+    }
+
+    @Override
+    public void updateIsChecked(ListItem item) {
+        try {
+            itemRepo.save(item);
+        } catch (ClassCastException e) {
+            // do something
+        }
     }
 }

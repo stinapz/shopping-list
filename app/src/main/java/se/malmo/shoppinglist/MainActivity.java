@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ItemAdapter.AdapterCallback {
     RecyclerView recyclerView;
     ItemAdapter adapter;
     Repository repo;
@@ -35,5 +35,14 @@ public class MainActivity extends AppCompatActivity {
     public void onBtnAddClick(View view) {
         Intent intent = new Intent(this, EditListActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void updateIsChecked(ListItem item) {
+        try {
+            repo.save(item);
+        } catch (ClassCastException e) {
+            // do something
+        }
     }
 }
