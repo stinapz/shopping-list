@@ -59,16 +59,6 @@ public class EditListActivity extends AppCompatActivity implements ItemAdapter.A
         navigateToEditList();
     }
 
-    public void onBtnDeleteListClick(View view){
-        if(adapter.items.size() == 0) {
-            Toast.makeText(getApplicationContext(), R.string.List_is_aldready_empty, Toast.LENGTH_SHORT).show();
-        }
-        else {
-            Toast.makeText(getApplicationContext(), R.string.Deleted_list, Toast.LENGTH_SHORT).show();
-            itemRepo.deleteAll();
-            navigateBackToMain();
-        }
-    }
 
     private ListItem getItemFromIntent(){
         Intent intent = getIntent();

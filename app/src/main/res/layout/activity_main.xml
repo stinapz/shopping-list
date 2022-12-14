@@ -1,33 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/black"
+    >
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="16dp"
-        android:clickable="true"
-        android:onClick="onBtnAddClick"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
+    <RelativeLayout
+        android:id="@+id/headLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <TextView
+            android:id="@+id/headText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your shopping list"
+            android:textAlignment="center"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_700"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+
+
+
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_shopping_lists"
-        android:layout_width="357dp"
-        android:layout_height="565dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.198" />
+        android:id="@+id/recyclerViewID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/headLayout"
+        android:layout_marginTop="20dp"
+        />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:text="ADD ITEMS"
+        app:cornerRadius="15dp"
+        android:layout_marginLeft="70dp"
+        android:layout_alignParentBottom="true"
+        android:onClick="onBtnAddClick"
+        android:layout_alignParentLeft="true"
+        android:backgroundTint="@color/teal_700"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:text="DELETE LIST"
+        app:cornerRadius="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="70dp"
+        android:layout_alignParentRight="true"
+        android:backgroundTint="@color/teal_700"
+        android:onClick="onBtnDeleteListClick"/>
+
+
+</RelativeLayout>
