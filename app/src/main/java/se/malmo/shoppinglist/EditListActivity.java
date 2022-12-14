@@ -26,15 +26,18 @@ public class EditListActivity extends AppCompatActivity implements ItemAdapter.A
         setContentView(R.layout.activity_edit_list);
 
         // skapar en sqliterepo -> en koppling till databasen
-        // ett objekt av klassen sqliterepo
+        // vi säger att vårt repo är sqliterepot
         itemRepo = SqliteRepo.getInstance(getApplicationContext());
 
+        // hittar recyklerviewn
         listView = findViewById(R.id.rv_list_items);
 
+        // adaptern binder ihopa datan med recyklerviewn
         adapter = new ItemAdapter(this, itemRepo.findAllItems());
         listView.setAdapter(adapter);
         listView.setLayoutManager(new LinearLayoutManager(this));
 
+        //detta behövs för att få med varan från main till textviewn för att kunna editera
         ListItem item = getItemFromIntent();
         itemId = item.getId();
         initViewFromItem(item);
@@ -60,7 +63,7 @@ public class EditListActivity extends AppCompatActivity implements ItemAdapter.A
         Toast.makeText(this, R.string.deleted_item, Toast.LENGTH_SHORT).show();
     }
 
-
+    //intent är byte av sida, man tar med sig information från tex main till ny view.
     private ListItem getItemFromIntent(){
         Intent intent = getIntent();
         int itemId = intent.getIntExtra("id", 0);
@@ -70,16 +73,13 @@ public class EditListActivity extends AppCompatActivity implements ItemAdapter.A
         return item == null ? new ListItem() : item;
     }
 
-    private void navigateBackToMain(){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
-
     private void navigateToEditList(){
         Intent intent = new Intent(this, EditListActivity.class);
         startActivity(intent);
     }
 
+    // sätter texten i textrutan när man har klickat på en vara.
+    // använder sig av metoden setText
     private void initViewFromItem(ListItem item) {
         setText(R.id.txt_edit_item, item.getItem());
     }
@@ -94,6 +94,7 @@ public class EditListActivity extends AppCompatActivity implements ItemAdapter.A
         return view.getText().toString();
     }
 
+    // skickar tillståndet på Checkedboxen till databasen
     @Override
     public void updateIsChecked(ListItem item) {
         try {

@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 
+// denna hör ihop med interfacet och här säger vi vad dessa metoderna gör för någonting.
 public class SqliteRepo implements Repository {
     private static final String TABLE_NAME = "Items";
     private SQLiteOpenHelper sqlite;
@@ -45,6 +46,7 @@ public class SqliteRepo implements Repository {
         return listItem;
     }
 
+    // gör arraylista av allt som finns i databasen.
     @Override
     public ArrayList<ListItem> findAllItems() {
         SQLiteDatabase db = sqlite.getReadableDatabase();

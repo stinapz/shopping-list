@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+// klassen som skapar adaptern (adaptern är den som pratar med recyklerview och datan som man har)
+// hur saker ska visas i en layout med hjälp av metoder
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     Context context;
     ArrayList<ListItem> items;
@@ -37,17 +39,18 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         LayoutInflater inflater = LayoutInflater.from(context);
         View itemView = inflater.inflate(R.layout.list_item, parent, false);
 
-        // Vieeholdern används för att interagera med viewn
+        // Viewholdern används för att interagera med viewn
         ViewHolder holder = new ViewHolder(itemView);
         return holder;
     }
 
+    // sätter vilka varor som ska visas och håller ihop informationen så den blir "flytande" när vi scrollar.
     @Override
     public void onBindViewHolder(@NonNull ItemAdapter.ViewHolder holder, int position) {
         ListItem item = items.get(position);
 
-        holder.txtItem.setText(String.valueOf(item.getItem()));
-        holder.checkBox.setChecked(item.getIsChecked() == 1);
+        holder.txtItem.setText(String.valueOf(item.getItem())); // visar texten
+        holder.checkBox.setChecked(item.getIsChecked() == 1);  // denna bestämmer vad som ska visas i checked-boxen
 
         holder.txtItem.setOnClickListener(view -> {
             Intent intent = new Intent(context, EditListActivity.class);
@@ -63,7 +66,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
             try {
                 adapterCallback.updateIsChecked(item);
             } catch (ClassCastException e) {
-                // gör någonting
             }
         });
     }
@@ -72,7 +74,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     public int getItemCount() {
         return items.size();
     }
-    //interagera med layout-viewn
+    //viewholdern interagera med layout-viewn
     public class ViewHolder extends RecyclerView.ViewHolder{
         public final TextView txtItem;
         public final CheckBox checkBox;
