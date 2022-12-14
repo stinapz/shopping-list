@@ -26,32 +26,19 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         } catch (ClassCastException e) {
             throw new ClassCastException("Activity must implement AdapterCallback.");
         }
-
     }
-
-
-
-
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // this method is called when a new view needs to be created
+        // denna metoden kallas när en ny veiw skapas
 
-        // the Inflater takes a layout and convert it into a View
+        //Inflatorn tar en layout och konverterar den till en view
         LayoutInflater inflater = LayoutInflater.from(context);
         View itemView = inflater.inflate(R.layout.list_item, parent, false);
 
-        // the ViewHolder is used to interact with the View
+        // Vieeholdern används för att interagera med viewn
         ViewHolder holder = new ViewHolder(itemView);
-        /*
-        // lambda implementation of the event listener
-        itemView.setOnClickListener(view -> {
-            Intent intent = new Intent(context, EditListActivity.class);
-            intent.putExtra("id", holder.txtItem.getText().toString());
-            context.startActivity(intent);
-        });
-        */
         return holder;
     }
 
@@ -59,43 +46,33 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ItemAdapter.ViewHolder holder, int position) {
         ListItem item = items.get(position);
 
-
         holder.txtItem.setText(String.valueOf(item.getItem()));
         holder.checkBox.setChecked(item.getIsChecked() == 1);
 
-        holder.txtItem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, EditListActivity.class);
-                intent.putExtra("id", item.getId());
-                context.startActivity(intent);
+        holder.txtItem.setOnClickListener(view -> {
+            Intent intent = new Intent(context, EditListActivity.class);
+            intent.putExtra("id", item.getId());
+            context.startActivity(intent);
+        });
+        holder.checkBox.setOnClickListener(view -> {
+            if (item.getIsChecked()==0)
+                item.setIsChecked(1);
+            else
+                item.setIsChecked(0);
+
+            try {
+                adapterCallback.updateIsChecked(item);
+            } catch (ClassCastException e) {
+                // gör någonting
             }
         });
-        holder.checkBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (item.getIsChecked()==0)
-                    item.setIsChecked(1);
-                else
-                    item.setIsChecked(0);
-
-                try {
-                    adapterCallback.updateIsChecked(item);
-                } catch (ClassCastException e) {
-                    // do something
-                }
-
-
-            }
-        });
-
     }
 
     @Override
     public int getItemCount() {
         return items.size();
     }
-    // how to interact with the view (layout)
+    //interagera med layout-viewn
     public class ViewHolder extends RecyclerView.ViewHolder{
         public final TextView txtItem;
         public final CheckBox checkBox;
