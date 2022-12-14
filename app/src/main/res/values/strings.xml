@@ -8,4 +8,8 @@
     <string name="Item_added">Item added</string>
     <string name="List_is_aldready_empty">List is already empty</string>
     <string name="Deleted_list">Deleted list</string>
+    <string name="deleted_item">Deleted item</string>
+    <string name="your_shopping_list">Your shopping list</string>
+    <string name="add_items">ADD ITEMS</string>
+
 </resources>

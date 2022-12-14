@@ -57,7 +57,7 @@ public class EditListActivity extends AppCompatActivity implements ItemAdapter.A
     public void onBtnRemoveClick(View view) {
         itemRepo.deleteItem(itemId);
         navigateToEditList();
-        Toast.makeText(this, "deleted item", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.deleted_item, Toast.LENGTH_SHORT).show();
     }
 
 
