@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+// denna klassen skapar och sätter upp databasen
 public class DbHelper extends SQLiteOpenHelper {
 
         public static final String DB_NAME = "Shopping.db";
@@ -24,6 +25,7 @@ public class DbHelper extends SQLiteOpenHelper {
         }
 
         @Override
+        // kolumner skapas i databasen
         public void onCreate(SQLiteDatabase db) {
             String query =
                     "CREATE TABLE Items (" +
@@ -36,6 +38,7 @@ public class DbHelper extends SQLiteOpenHelper {
         }
 
         @Override
+        // denna måste finnas med men används ej i vår app då vi inte har en uppdateringsfunktion.
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             db.execSQL("DROP TABLE IF EXISTS Items");
             onCreate(db);

@@ -13,18 +13,20 @@ import android.widget.Toast;
 
 import java.util.Objects;
 
+// detta är den andra viewn, med knapparna delete, save och där man kan editera varan.
 public class EditListActivity extends AppCompatActivity implements ItemAdapter.AdapterCallback {
     RecyclerView listView;
     ItemAdapter adapter;
     private int itemId;
     Repository itemRepo;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_list);
 
+        // skapar en sqliterepo -> en koppling till databasen
+        // ett objekt av klassen sqliterepo
         itemRepo = SqliteRepo.getInstance(getApplicationContext());
 
         listView = findViewById(R.id.rv_list_items);
@@ -38,8 +40,6 @@ public class EditListActivity extends AppCompatActivity implements ItemAdapter.A
         initViewFromItem(item);
 
     }
-
-
 
     public void onBtnSaveClick(View view) {
 
