@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.Adapt
         try {
             repo.save(item);
         } catch (ClassCastException e) {
-            // do something
+            // gör någonting
         }
     }
 }
