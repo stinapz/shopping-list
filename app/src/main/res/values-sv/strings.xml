@@ -5,4 +5,8 @@
     <string name="save">Spara</string>
     <string name="delete">Radera</string>
     <string name="delete_list">Radera lista</string>
+    <string name="Error_Adding_Item">Ett fel uppstod. Vara är ej tillagd</string>
+    <string name="Item_added">Vara tillagd</string>
+    <string name="List_is_aldready_empty">Listan är redan tom</string>
+    <string name="Deleted_list">Lista raderad</string>
 </resources>

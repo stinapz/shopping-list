@@ -45,10 +45,10 @@ public class EditListActivity extends AppCompatActivity {
         ListItem item = new ListItem(itemId, getTextFromView(R.id.txt_edit_item), 0);
 
         if (Objects.equals(item.getItem(), ""))
-            Toast.makeText(getApplicationContext(), "Error adding item", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.Error_Adding_Item, Toast.LENGTH_SHORT).show();
         else {
             itemRepo.save(item);
-            Toast.makeText(this, "Item added", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.Item_added, Toast.LENGTH_SHORT).show();
             navigateToEditList();
         }
     }
@@ -62,10 +62,10 @@ public class EditListActivity extends AppCompatActivity {
     // Raderar hela listan -> fungerar!
     public void onBtnDeleteListClick(View view){
         if(adapter.items.size() == 0) {
-            Toast.makeText(getApplicationContext(), "List is already empty", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.List_is_aldready_empty, Toast.LENGTH_SHORT).show();
         }
         else {
-            Toast.makeText(getApplicationContext(), "Deleted list", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.Deleted_list, Toast.LENGTH_SHORT).show();
             itemRepo.deleteAll();
             navigateBackToMain();
         }
