@@ -40,6 +40,7 @@
 
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/add_buttonMain"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:text="ADD ITEMS"
@@ -50,7 +51,16 @@
         android:layout_alignParentLeft="true"
         android:backgroundTint="@color/teal_700"/>
 
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="10dp"
+        android:layout_toLeftOf="@+id/deleteListMain"
+        android:layout_toRightOf="@+id/add_buttonMain"
+        android:layout_alignParentBottom="true"
+        />
+
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/deleteListMain"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:text="DELETE LIST"
