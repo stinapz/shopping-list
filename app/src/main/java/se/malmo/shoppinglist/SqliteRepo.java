@@ -70,6 +70,7 @@ public class SqliteRepo implements Repository {
         SQLiteDatabase db = sqlite.getWritableDatabase();
         String[] args = getWhereArgs(id);
         db.delete(TABLE_NAME, "id = ?", args);
+        db.close();
     }
 
     @Override
@@ -93,6 +94,7 @@ public class SqliteRepo implements Repository {
         SQLiteDatabase db = sqlite.getWritableDatabase();
         ContentValues c = getContentValues(listItem);
         db.insert(TABLE_NAME, null, c);
+        db.close();
     }
 
     private void updateItem(ListItem listItem){
@@ -102,6 +104,7 @@ public class SqliteRepo implements Repository {
         String[] whereArgs = getWhereArgs(listItem.getId());
 
         db.update(TABLE_NAME, c, "id = ?", whereArgs);
+        db.close();
     }
 
     @NonNull
